@@ -20,3 +20,7 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self): # get the absolute URL of the post
+        from django.urls import reverse # import reverse function from django.urls
+        return reverse("post_detail", kwargs={"slug": str(self.slug)}) # return the URL of the post
